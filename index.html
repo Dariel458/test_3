@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MΩME - Olympiades Mathématiques pour Collégiens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .custom-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .logo {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .form-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="custom-bg text-white shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <span class="logo text-white">MΩME</span>
+                <span class="text-xl hidden md:block">Mathématiques Olympique pour les Minis Étudiants</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium bg-blue-700 text-white transition duration-300">Accueil</a>
+                <a href="#inscription" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 text-white transition duration-300">Inscription Compétition</a>
+                <a href="#membre" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 text-white transition duration-300">Devenir Membre</a>
+                <a href="#ressources" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 text-white transition duration-300">Ressources</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 text-white transition duration-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 px-6">
+            <div class="flex flex-col space-y-2">
+                <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium bg-blue-700 text-white">Accueil</a>
+                <a href="#inscription" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-700">Inscription Compétition</a>
+                <a href="#membre" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-700">Devenir Membre</a>
+                <a href="#ressources" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-700">Ressources</a>
+                <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="custom-bg text-white py-20">
+                <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6">Défiez vos limites en mathématiques !</h1>
+                        <p class="text-xl mb-8">Rejoignez les Olympiades MΩME et découvrez le plaisir de résoudre des problèmes mathématiques stimulants.</p>
+                        <div class="flex space-x-4">
+                            <a href="#inscription" class="bg-white text-blue-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition duration-300">S'inscrire aux compétitions</a>
+                            <a href="#membre" class="border-2 border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-800 transition duration-300">Devenir membre</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full flex items-center justify-center shadow-2xl floating">
+                            <span class="text-blue-800 text-9xl font-bold">α</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">À propos de MΩME</h2>
+                    <div class="flex flex-col md:flex-row md:space-x-8">
+                        <div class="md:w-1/3 mb-8 md:mb-0">
+                            <div class="bg-blue-100 rounded-lg p-6 h-full card-hover transition duration-300">
+                                <div class="text-blue-800 mb-4">
+                                    <i class="fas fa-bullseye text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-4 text-gray-800">Notre Mission</h3>
+                                <p class="text-gray-600">Promouvoir l'excellence en mathématiques chez les collégiens à travers des compétitions stimulantes et un esprit de camaraderie.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/3 mb-8 md:mb-0">
+                            <div class="bg-blue-100 rounded-lg p-6 h-full card-hover transition duration-300">
+                                <div class="text-blue-800 mb-4">
+                                    <i class="fas fa-trophy text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-4 text-gray-800">Nos Compétitions</h3>
+                                <p class="text-gray-600">Des épreuves adaptées à tous les niveaux, avec des problèmes originaux conçus par notre équipe d'experts en pédagogie mathématique.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/3">
+                            <div class="bg-blue-100 rounded-lg p-6 h-full card-hover transition duration-300">
+                                <div class="text-blue-800 mb-4">
+                                    <i class="fas fa-users text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-4 text-gray-800">Notre Communauté</h3>
+                                <p class="text-gray-600">Plus de 5 000 collégiens participants chaque année, venant de toute la France pour partager leur passion des mathématiques.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="py-20 bg-gray-100">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Témoignages</h2>
+                    <div class="flex flex-col md:flex-row md:space-x-8">
+                        <div class="md:w-1/2 mb-8 md:mb-0">
+                            <div class="bg-white rounded-lg p-8 shadow-lg card-hover transition duration-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mb-6">"Participant aux Olympiades MΩME depuis deux ans, j'ai énormément progressé en mathématiques et découvert une nouvelle façon de penser. Les problèmes sont passionnants !"</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <span class="text-blue-800 font-bold">L</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Léa, 14 ans</h4>
+                                        <p class="text-gray-500">Collège Les Cèdres, Lyon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="bg-white rounded-lg p-8 shadow-lg card-hover transition duration-300">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mb-6">"En tant que professeur, je recommande vivement MΩME à mes élèves. L'approche ludique et stimulante des mathématiques est un complément parfait au programme scolaire."</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <span class="text-blue-800 font-bold">P</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Prof. Martin</h4>
+                                        <p class="text-gray-500">Collège Jean Moulin, Paris</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Inscription Compétition Page -->
+        <div id="inscription" class="page hidden">
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Inscription aux Compétitions MΩME</h2>
+                    
+                    <div class="bg-blue-50 rounded-lg p-8 shadow-lg">
+                        <form id="competition-form" class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Informations Personnelles</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">Prénom</label>
+                                        <input type="text" id="first-name" name="first-name" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                    </div>
+                                    <div>
+                                        <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                                        <input type="text" id="last-name" name="last-name" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                    </div>
+                                    <div>
+                                        <label for="birthdate" class="block text-sm font-medium text-gray-700 mb-1">Date de Naissance</label>
+                                        <input type="date" id="birthdate" name="birthdate" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Informations Scolaires</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="school" class="block text-sm font-medium text-gray-700 mb-1">Établissement Scolaire</label>
+                                        <input type="text" id="school" name="school" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                    </div>
+                                    <div>
+                                        <label for="class" class="block text-sm font-medium text-gray-700 mb-1">Classe</label>
+                                        <select id="class" name="class" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                            <option value="">Sélectionnez votre classe</option>
+                                            <option value="6eme">6ème</option>
+                                            <option value="5eme">5ème</option>
+                                            <option value="4eme">4ème</option>
+                                            <option value="3eme">3ème</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Compétition</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center">
+                                        <input type="radio" id="individual" name="competition-type" value="individual" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked>
+                                        <label for="individual" class="ml-3 block text-sm font-medium text-gray-700">Individuelle</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" id="team" name="competition-type" value="team" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                        <label for="team" class="ml-3 block text-sm font-medium text-gray-700">Par équipe (3-4 élèves du même établissement)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="team-members" class="hidden">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Membres de l'Équipe</h3>
+                                <div class="space-y-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="member1-name" class="block text-sm font-medium text-gray-700 mb-1">Nom et Prénom Membre 1</label>
+                                            <input type="text" id="member1-name" name="member1-name" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500">
+                                        </div>
+                                        <div>
+                                            <label for="member1-email" class="block text-sm font-medium text-gray-700 mb-1">Email Membre 1</label>
+                                            <input type="email" id="member1-email" name="member1-email" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500">
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="member2-name" class="block text-sm font-medium text-gray-700 mb-1">Nom et Prénom Membre 2</label>
+                                            <input type="text" id="member2-name" name="member2-name" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500">
+                                        </div>
+                                        <div>
+                                            <label for="member2-email" class="block text-sm font-medium text-gray-700 mb-1">Email Membre 2</label>
+                                            <input type="email" id="member2-email" name="member2-email" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500">
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="member3-name" class="block text-sm font-medium text-gray-700 mb-1">Nom et Prénom Membre 3</label>
+                                            <input type="text" id="member3-name" name="member3-name" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500">
+                                        </div>
+                                        <div>
+                                            <label for="member3-email" class="block text-sm font-medium text-gray-700 mb-1">Email Membre 3</label>
+                                            <input type="email" id="member3-email" name="member3-email" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Autorisation Parentale</h3>
+                                <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="parent-consent" name="parent-consent" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" required>
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="parent-consent" class="font-medium text-gray-700">Je certifie avoir obtenu l'autorisation de mes parents/tuteurs légaux pour participer à cette compétition.</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-6">
+                                <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                                    <i class="fas fa-paper-plane mr-2"></i> Soumettre l'inscription
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="success-message" class="hidden mt-8 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                        <strong class="font-bold">Succès !</strong>
+                        <span class="block sm:inline"> Votre inscription a été enregistrée avec succès. Un email de confirmation vous a été envoyé.</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Devenir Membre Page -->
+        <div id="membre" class="page hidden">
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Devenir Membre de MΩME</h2>
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 bg-blue-800 text-white p-8">
+                                <h3 class="text-2xl font-bold mb-4">Avantages du Membre</h3>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                                        <span>Accès exclusif à nos ressources d'entraînement</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                                        <span>Bulletin d'information mensuel avec des problèmes inédits</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                                        <span>Réduction sur les frais d'inscription aux compétitions</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                                        <span>Participation aux événements réservés aux membres</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-300 mt-1 mr-2"></i>
+                                        <span>Certificat de membre et badge numérique</span>
+                                    </li>
+                                </ul>
+                                <div class="mt-8">
+                                    <div class="bg-blue-700 rounded-lg p-4">
+                                        <h4 class="font-bold mb-2">Cotisation annuelle</h4>
+                                        <p class="text-3xl font-bold">15€ <span class="text-lg font-normal">/an</span></p>
+                                        <p class="text-sm mt-1">(gratuit pour les boursiers sur justificatif)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 p-8">
+                                <form id="membership-form" class="space-y-6">
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Informations Personnelles</h3>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="m-first-name" class="block text-sm font-medium text-gray-700 mb-1">Prénom</label>
+                                                <input type="text" id="m-first-name" name="m-first-name" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                            </div>
+                                            <div>
+                                                <label for="m-last-name" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                                                <input type="text" id="m-last-name" name="m-last-name" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                            </div>
+                                            <div>
+                                                <label for="m-birthdate" class="block text-sm font-medium text-gray-700 mb-1">Date de Naissance</label>
+                                                <input type="date" id="m-birthdate" name="m-birthdate" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                            </div>
+                                            <div>
+                                                <label for="m-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                                <input type="email" id="m-email" name="m-email" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Informations Scolaires</h3>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="m-school" class="block text-sm font-medium text-gray-700 mb-1">Établissement Scolaire</label>
+                                                <input type="text" id="m-school" name="m-school" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                            </div>
+                                            <div>
+                                                <label for="m-class" class="block text-sm font-medium text-gray-700 mb-1">Classe</label>
+                                                <select id="m-class" name="m-class" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                                    <option value="">Sélectionnez votre classe</option>
+                                                    <option value="6eme">6ème</option>
+                                                    <option value="5eme">5ème</option>
+                                                    <option value="4eme">4ème</option>
+                                                    <option value="3eme">3ème</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Motivation</h3>
+                                        <div>
+                                            <label for="motivation" class="block text-sm font-medium text-gray-700 mb-1">Pourquoi souhaitez-vous devenir membre de MΩME ?</label>
+                                            <textarea id="motivation" name="motivation" rows="3" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Autorisation Parentale</h3>
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="m-parent-consent" name="m-parent-consent" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" required>
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="m-parent-consent" class="font-medium text-gray-700">Je certifie avoir obtenu l'autorisation de mes parents/tuteurs légaux pour devenir membre de MΩME.</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-6">
+                                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                                            <i class="fas fa-user-plus mr-2"></i> Devenir membre
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <div id="membership-success" class="hidden mt-8 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                                    <strong class="font-bold">Félicitations !</strong>
+                                    <span class="block sm:inline"> Votre demande d'adhésion a été enregistrée. Vous recevrez sous peu un email avec les instructions pour finaliser votre inscription.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Ressources Page -->
+        <div id="ressources" class="page hidden">
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Ressources et Informations</h2>
+                    
+                    <div class="mb-16">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Prochaines Compétitions</h3>
+                        <div class="bg-blue-50 rounded-lg p-6">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-blue-100">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Date</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Événement</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Lieu</th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Inscription</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">15 Octobre 2023</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tournoi d'Automne - Niveau 6ème/5ème</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">En ligne</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                <a href="#inscription" class="text-blue-600 hover:text-blue-800">S'inscrire</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">12 Novembre 2023</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tournoi d'Automne - Niveau 4ème/3ème</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Paris, Lyon, Marseille</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                <a href="#inscription" class="text-blue-600 hover:text-blue-800">S'inscrire</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">14 Janvier 2024</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Championnat d'Hiver - Tous niveaux</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Centres régionaux</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                <span class="text-gray-400">Ouverture le 1er décembre</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-16">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Ressources d'Entraînement</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 card-hover transition duration-300">
+                                <div class="bg-blue-800 p-4 text-white">
+                                    <h4 class="font-bold text-lg">Problèmes Hebdomadaires</h4>
+                                </div>
+                                <div class="p-6">
+                                    <p class="text-gray-600 mb-4">Recevez chaque semaine une sélection de problèmes adaptés à votre niveau.</p>
+                                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                                        <span>Accéder aux archives</span>
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 card-hover transition duration-300">
+                                <div class="bg-blue-800 p-4 text-white">
+                                    <h4 class="font-bold text-lg">Annales des Compétitions</h4>
+                                </div>
+                                <div class="p-6">
+                                    <p class="text-gray-600 mb-4">Tous les sujets et corrigés des éditions précédentes des Olympiades MΩME.</p>
+                                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                                        <span>Télécharger</span>
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 card-hover transition duration-300">
+                                <div class="bg-blue-800 p-4 text-white">
+                                    <h4 class="font-bold text-lg">Vidéos Pédagogiques</h4>
+                                </div>
+                                <div class="p-6">
+                                    <p class="text-gray-600 mb-4">Nos tuteurs expliquent les concepts clés et résolvent des problèmes types.</p>
+                                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                                        <span>Voir la chaîne</span>
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Actualités</h3>
+                        <div class="space-y-8">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 card-hover transition duration-300">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3">
+                                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Résultats 2023" class="w-full h-48 object-cover">
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <div class="text-sm text-blue-600 font-semibold mb-2">15 Juin 2023</div>
+                                        <h4 class="text-xl font-bold text-gray-800 mb-3">Résultats des Olympiades Nationales 2023</h4>
+                                        <p class="text-gray-600 mb-4">Découvrez les lauréats de l'édition 2023 des Olympiades MΩME. Félicitations à tous les participants pour leur excellent travail !</p>
+                                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                                            <span>Lire l'article complet</span>
+                                            <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 card-hover transition duration-300">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3">
+                                        <img src="https://images.unsplash.com/photo-1546410531-bb4ca7556a98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Nouveaux centres" class="w-full h-48 object-cover">
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <div class="text-sm text-blue-600 font-semibold mb-2">2 Mai 2023</div>
+                                        <h4 class="text-xl font-bold text-gray-800 mb-3">Ouverture de 5 nouveaux centres régionaux</h4>
+                                        <p class="text-gray-600 mb-4">MΩME étend son réseau avec l'ouverture de centres à Bordeaux, Lille, Strasbourg, Nantes et Toulouse pour la saison 2023-2024.</p>
+                                        <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                                            <span>Lire l'article complet</span>
+                                            <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page hidden">
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Contactez-nous</h2>
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 bg-blue-800 text-white p-8">
+                                <h3 class="text-2xl font-bold mb-6">Coordonnées</h3>
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="text-blue-200 mr-4 mt-1">
+                                            <i class="fas fa-map-marker-alt text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Adresse</h4>
+                                            <p>12 Rue des Mathématiques<br>75005 Paris, France</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-blue-200 mr-4 mt-1">
+                                            <i class="fas fa-envelope text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Email</h4>
+                                            <p>contact@mome-olympiades.fr</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-blue-200 mr-4 mt-1">
+                                            <i class="fas fa-phone-alt text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Téléphone</h4>
+                                            <p>+33 1 23 45 67 89</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-blue-200 mr-4 mt-1">
+                                            <i class="fas fa-clock text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Horaires</h4>
+                                            <p>Lundi-Vendredi: 9h-18h<br>Samedi: 10h-14h</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-10">
+                                    <h3 class="text-2xl font-bold mb-4">Suivez-nous</h3>
+                                    <div class="flex space-x-4">
+                                        <a href="#" class="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-600 transition duration-300">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 p-8">
+                                <form id="contact-form" class="space-y-6">
+                                    <div>
+                                        <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
+                                        <input type="text" id="contact-name" name="contact-name" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                    </div>
+                                    <div>
+                                        <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" id="contact-email" name="contact-email" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                    </div>
+                                    <div>
+                                        <label for="contact-subject" class="block text-sm font-medium text-gray-700 mb-1">Sujet</label>
+                                        <select id="contact-subject" name="contact-subject" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required>
+                                            <option value="">Sélectionnez un sujet</option>
+                                            <option value="competition">Questions sur les compétitions</option>
+                                            <option value="membership">Adhésion à l'association</option>
+                                            <option value="partnership">Partenariats et sponsors</option>
+                                            <option value="other">Autre demande</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                        <textarea id="contact-message" name="contact-message" rows="4" class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500" required></textarea>
+                                    </div>
+                                    <div class="pt-4">
+                                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                                            <i class="fas fa-paper-plane mr-2"></i> Envoyer le message
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <div id="contact-success" class="hidden mt-8 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                                    <strong class="font-bold">Message envoyé !</strong>
+                                    <span class="block sm:inline"> Nous avons bien reçu votre message et vous répondrons dans les plus brefs délais.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MΩME</h3>
+                    <p class="text-gray-400">Promouvoir l'excellence en mathématiques chez les collégiens depuis 2010.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
+                        <li><a href="#inscription" class="text-gray-400 hover:text-white transition duration-300">Inscription Compétition</a></li>
+                        <li><a href="#membre" class="text-gray-400 hover:text-white transition duration-300">Devenir Membre</a></li>
+                        <li><a href="#ressources" class="text-gray-400 hover:text-white transition duration-300">Ressources</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Compétitions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Calendrier</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Règlements</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Résultats</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Galeries photos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos actualités et ressources.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 MΩME - Tous droits réservés</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Page navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const allPages = document.querySelectorAll('.page');
+                
+                // Hide all pages
+                allPages.forEach(page => {
+                    page.classList.add('hidden');
+                    page.classList.remove('active');
+                });
+                
+                // Show target page
+                const targetPage = document.getElementById(targetId);
+                if (targetPage) {
+                    targetPage.classList.remove('hidden');
+                    targetPage.classList.add('active');
+                }
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Show/hide team members fields based on competition type
+        const competitionTypeRadios = document.querySelectorAll('input[name="competition-type"]');
+        const teamMembersDiv = document.getElementById('team-members');
+        
+        competitionTypeRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'team') {
+                    teamMembersDiv.classList.remove('hidden');
+                } else {
+                    teamMembersDiv.classList.add('hidden');
+                }
+            });
+        });
+
+        // Form submissions
+        document.getElementById('competition-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the data to a server
+            document.getElementById('success-message').classList.remove('hidden');
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('success-message').classList.add('hidden');
+            }, 5000);
+        });
+
+        document.getElementById('membership-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the data to a server
+            document.getElementById('membership-success').classList.remove('hidden');
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('membership-success').classList.add('hidden');
+            }, 5000);
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the data to a server
+            document.getElementById('contact-success').classList.remove('hidden');
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('contact-success').classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
